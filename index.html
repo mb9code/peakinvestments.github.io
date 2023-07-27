@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./img/favicon/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Invest with Peak – the next frontier in web3 investing</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: 0;
+        font-family: "Manrope", sans-serif;
+      }
+      img {
+        max-width: 100%;
+        object-fit: contain;
+      }
+      .bg-img-1 {
+        background-image: url("./img/peak-investor-platform-v0.6.png");
+        background-size: cover;
+      }
+
+      .bg-img-2 {
+        background-image: url("./img/peak-dex-alpha.png");
+        background-size: cover;
+      }
+      .scrollbar-hide-img::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      .scrollbar-hide-img::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+      .scrollbar-hide-img::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+      .bg-star {
+        background-image: url("./img/peak-starfield.png");
+        background-size: cover;
+      }
+      .active-lang {
+        background-color: #262626 !important;
+        color: #e2e2e2 !important;
+      }
+      svg {
+        fill: #ffd600;
+      }
+      svg:hover {
+        fill: white;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+          },
+          extend: {
+            colors: {
+              mainbg: "#0d0d0d",
+              linkColor: "#5599FF",
+              linkHoverColor: "#BA27FF",
+              white: "#ffffff",
+              textOff: "#676767",
+              main: "#dddddd",
+              brandColor: "#FFD600",
+              borderMain: "#1d1d1d",
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const isOpen = this.nextElementSibling.classList.contains("hidden");
+            closeAllAccordionContents();
+            if (isOpen) {
+              this.nextElementSibling.classList.remove("hidden");
+              this.querySelector(".fa-chevron-down").classList.add("hidden");
+              this.querySelector(".fa-chevron-up").classList.remove("hidden");
+            }
+          });
+        });
+
+        function closeAllAccordionContents() {
+          const accordionContents =
+            document.querySelectorAll(".accordion-content");
+          const chevronDowns = document.querySelectorAll(".fa-chevron-down");
+          const chevronUps = document.querySelectorAll(".fa-chevron-up");
+          accordionContents.forEach((content) => {
+            content.classList.add("hidden");
+          });
+          chevronDowns.forEach((chevron) => {
+            chevron.classList.remove("hidden");
+          });
+          chevronUps.forEach((chevron) => {
+            chevron.classList.add("hidden");
+          });
+        }
+      });
+    </script>
+  </head>
+  <body
+    class="bg-mainbg py-8 font-Manrope text-textOff text-[16px] sm:text-[18px] font-[500] flex flex-col items-center gap-5 p-2 md:p-0"
+  >
+    <div
+      class="w-full top-[5px] sm:py-2 fixed flex justify-center gap-1 z-[100]"
+    >
+      <button
+        id="en"
+        class="px-3 py-1 text-[16px] rounded border-black bg-[#262626] text-[#595959] hover:text-[#e2e2e2] active-lang lang-button"
+      >
+        EN
+      </button>
+      <button
+        id="cn"
+        class="px-3 py-1 text-[16px] rounded border-black bg-[#262626] text-[#595959] hover:text-[#e2e2e2] lang-button"
+      >
+        CN
+      </button>
+    </div>
+    <header class="w-full max-w-[1284px] mx-auto pt-[54px]">
+      <nav class="flex justify-center md:justify-between items-end -mb-3">
+        <div>
+          <!-- <img src="./img/logo.png" alt="logo" /> -->
+          <svg
+            width="269"
+            height="68"
+            viewBox="0 0 269 68"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 68V0H29.4771C30.1558 0 31.0608 0.0314809 32.1921 0.094443C33.3556 0.125926 34.3899 0.220372 35.2949 0.377779C39.4644 1.00741 42.8743 2.34537 45.5246 4.39166C48.2073 6.43796 50.1789 9.01944 51.4394 12.1361C52.7 15.2213 53.3302 18.6685 53.3302 22.4778C53.3302 26.287 52.6838 29.75 51.391 32.8667C50.1304 35.9518 48.1588 38.5176 45.4762 40.5639C42.8258 42.6102 39.4321 43.9481 35.2949 44.5778C34.3899 44.7037 33.3556 44.7982 32.1921 44.8611C31.0285 44.9241 30.1235 44.9556 29.4771 44.9556H13.1871V68H0ZM13.1871 32.9611H28.8953C29.574 32.9611 30.3174 32.9296 31.1255 32.8667C31.9335 32.8037 32.6769 32.6778 33.3556 32.4889C35.1333 32.0167 36.507 31.2296 37.4766 30.1278C38.4463 28.9944 39.1088 27.7509 39.4644 26.3972C39.8522 25.012 40.0462 23.7056 40.0462 22.4778C40.0462 21.25 39.8522 19.9593 39.4644 18.6056C39.1088 17.2204 38.4463 15.9769 37.4766 14.875C36.507 13.7417 35.1333 12.9389 33.3556 12.4667C32.6769 12.2778 31.9335 12.1519 31.1255 12.0889C30.3174 12.0259 29.574 11.9944 28.8953 11.9944H13.1871V32.9611Z"
+              fill="white"
+            />
+            <path
+              d="M63.0645 68V0H108.638V11.9944H76.2516V26.5389H102.82V38.5333H76.2516V56.0056H108.638V68H63.0645Z"
+              fill="white"
+            />
+            <path
+              d="M115.41 68L136.742 0H156.426L177.758 68H164.183L145.178 8.02778H147.699L128.985 68H115.41ZM128.209 53.8333V41.8389H165.056V53.8333H128.209Z"
+              fill="white"
+            />
+            <path
+              d="M186.448 68V0H199.635V31.3556L226.203 0H242.299L213.113 33.5278L244.141 68H227.463L199.635 37.0222V68H186.448Z"
+              fill="white"
+            />
+            <path
+              d="M208.757 27.1992H268.908V40.7992H208.757V27.1992Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <div class="hidden md:flex gap-[24px] items-center">
+          <a
+            href="https://discord.gg/GnaDySzgkd"
+            target="_blank"
+            class="text-brandColor hover:text-white"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M25.6948 7.10689C23.9215 6.28022 22.0015 5.68022 20.0015 5.33356C19.9839 5.333 19.9665 5.33629 19.9504 5.3432C19.9342 5.35011 19.9198 5.36047 19.9081 5.37356C19.6681 5.81356 19.3881 6.38689 19.2015 6.82689C17.0801 6.50689 14.9228 6.50689 12.8015 6.82689C12.6148 6.37356 12.3348 5.81356 12.0815 5.37356C12.0681 5.34689 12.0281 5.33356 11.9881 5.33356C9.98812 5.68022 8.08146 6.28022 6.29479 7.10689C6.28146 7.10689 6.26813 7.12022 6.25479 7.13356C2.62813 12.5602 1.62813 17.8402 2.12146 23.0669C2.12146 23.0936 2.13479 23.1202 2.16146 23.1336C4.56146 24.8936 6.86813 25.9602 9.14813 26.6669C9.18813 26.6802 9.22813 26.6669 9.24146 26.6402C9.77479 25.9069 10.2548 25.1336 10.6681 24.3202C10.6948 24.2669 10.6681 24.2136 10.6148 24.2002C9.85479 23.9069 9.13479 23.5602 8.42813 23.1602C8.37479 23.1336 8.37479 23.0536 8.41479 23.0136C8.56146 22.9069 8.70813 22.7869 8.85479 22.6802C8.88146 22.6536 8.92146 22.6536 8.94813 22.6669C13.5348 24.7602 18.4815 24.7602 23.0148 22.6669C23.0415 22.6536 23.0815 22.6536 23.1081 22.6802C23.2548 22.8002 23.4015 22.9069 23.5481 23.0269C23.6015 23.0669 23.6015 23.1469 23.5348 23.1736C22.8415 23.5869 22.1081 23.9202 21.3481 24.2136C21.2948 24.2269 21.2815 24.2936 21.2948 24.3336C21.7215 25.1469 22.2015 25.9202 22.7215 26.6536C22.7615 26.6669 22.8015 26.6802 22.8415 26.6669C25.1348 25.9602 27.4415 24.8936 29.8415 23.1336C29.8681 23.1202 29.8815 23.0936 29.8815 23.0669C30.4681 17.0269 28.9081 11.7869 25.7481 7.13356C25.7348 7.12022 25.7215 7.10689 25.6948 7.10689ZM11.3615 19.8802C9.98813 19.8802 8.84146 18.6136 8.84146 17.0536C8.84146 15.4936 9.96146 14.2269 11.3615 14.2269C12.7748 14.2269 13.8948 15.5069 13.8815 17.0536C13.8815 18.6136 12.7615 19.8802 11.3615 19.8802ZM20.6548 19.8802C19.2815 19.8802 18.1348 18.6136 18.1348 17.0536C18.1348 15.4936 19.2548 14.2269 20.6548 14.2269C22.0681 14.2269 23.1881 15.5069 23.1748 17.0536C23.1748 18.6136 22.0681 19.8802 20.6548 19.8802Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/peakcoineth"
+            target="_blank"
+            class="text-brandColor hover:text-white"
+          >
+            <svg
+              width="28"
+              height="23"
+              viewBox="0 0 28 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M27.8933 2.66667C26.8667 3.13333 25.76 3.44 24.6133 3.58667C25.7867 2.88 26.6933 1.76 27.12 0.413333C26.0133 1.08 24.7867 1.54667 23.4933 1.81333C22.44 0.666667 20.96 0 19.28 0C16.1467 0 13.5867 2.56 13.5867 5.72C13.5867 6.17333 13.64 6.61333 13.7333 7.02667C8.98667 6.78667 4.76 4.50667 1.94667 1.05333C1.45333 1.89333 1.17333 2.88 1.17333 3.92C1.17333 5.90667 2.17333 7.66667 3.72 8.66667C2.77333 8.66667 1.89333 8.4 1.12 8V8.04C1.12 10.8133 3.09333 13.1333 5.70667 13.6533C4.86764 13.8829 3.98679 13.9149 3.13333 13.7467C3.49548 14.8833 4.20472 15.8779 5.16136 16.5906C6.11799 17.3033 7.27393 17.6983 8.46667 17.72C6.44484 19.3206 3.93866 20.1858 1.36 20.1733C0.906667 20.1733 0.453333 20.1467 0 20.0933C2.53333 21.72 5.54667 22.6667 8.77333 22.6667C19.28 22.6667 25.0533 13.9467 25.0533 6.38667C25.0533 6.13333 25.0533 5.89333 25.04 5.64C26.16 4.84 27.12 3.82667 27.8933 2.66667Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://t.me/peaktokenofficial"
+            target="_blank"
+            class="text-brandColor hover:text-white"
+          >
+            <svg
+              width="25"
+              height="22"
+              viewBox="0 0 25 22"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.93516 19.8668L10.3085 14.2268L20.5485 5.00012C21.0018 4.58679 20.4552 4.38679 19.8552 4.74679L7.21516 12.7335L1.74849 11.0001C0.57516 10.6668 0.561826 9.85345 2.01516 9.26679L23.3085 1.05345C24.2818 0.613453 25.2152 1.29345 24.8418 2.78679L21.2152 19.8668C20.9618 21.0801 20.2285 21.3735 19.2152 20.8135L13.6952 16.7335L11.0418 19.3068C10.7352 19.6135 10.4818 19.8668 9.93516 19.8668Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </nav>
+      <div class="flex justify-center ites-center -mt-[10px] w-full">
+        <img src="./img/peak-manifesto.png" class="max-w-100" alt="hero img" />
+      </div>
+      <p
+        id="headerCaption"
+        class="text-[12px] md:text-[15px] text-center font-[600] text-textOff py-2"
+      >
+        No more gatekeeping, welcome to Peak
+      </p>
+    </header>
+
+    <div class="flex flex-col gap-[90px]">
+      <section class="w-full max-w-[850px] mx-auto text-main flex flex-col">
+        <div
+          class="flex items-center justify-between gap-4 mt-[30px] mb-[30px]"
+        >
+          <img
+            src="./img/peak-token.png"
+            class="w-[80px] sm:hidden"
+            alt="peak-token"
+          />
+          <h1
+            id="heroTitle"
+            class="w-full text-white md:text-center text-[22px] md:text-[28px] md:text-[50px] font-[800]"
+          >
+            The new frontier in web3 investing
+          </h1>
+        </div>
+        <div class="flex gap-5 items-center">
+          <div class="">
+            <img
+              src="./img/peak-token.png"
+              class="hidden sm:block h-full scale-[1.2]"
+              alt="peak-token"
+            />
+          </div>
+          <div class="md:ml-2">
+            <p id="heroDescription" class="text-[18px] font-medium text-main">
+              PEAK is our ERC-20 token that gain access to opportunities that
+              Peak offers. By using PEAK tokens, investors can directly
+              participate in the investment decisions and receive proportional
+              returns on their investments.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-7 mt-[45px]">
+          <div
+            class="w-full flex justify-around flex-col sm:flex-row gap-[30px] sm:max-w-[6004px]"
+          >
+            <div class="hidden sm:block">
+              <h2
+                id="preSale"
+                class="text-[22px] md:text-[28px] font-[800] text-white text-center"
+              >
+                Pre-sale
+              </h2>
+              <p id="stage" class="text-center text-textOff">Coming Soon</p>
+            </div>
+            <div>
+              <h2
+                class="text-[22px] md:text-[28px] font-[800] text-white text-center"
+              >
+                40,000,000,000
+              </h2>
+              <p id="preSaleSupply" class="text-center text-textOff">
+                Pre-sale Supply
+              </p>
+            </div>
+            <div>
+              <h2
+                class="text-[22px] md:text-[28px] font-[800] text-white text-center"
+              >
+                152,000,000 PEAK
+              </h2>
+              <p id="preSalePrice" class="text-center text-textOff">
+                Pre-sale Price (per ETH)
+              </p>
+            </div>
+          </div>
+          <div
+            class="hidden md:w-[800px] mx-auto md:flex justify-between items-center gap-5"
+          >
+            <div class="w-full rounded h-2 w-full bg-[#363530]">
+              <div class="bg-brandColor h-full w-[0%] rounded"></div>
+            </div>
+            <p class="text-brandColor">0%</p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row md:justify-center items-center gap-8 sm:gap-12 mt-[48px]"
+        >
+          <button
+            id="getYourPeak_1"
+            class="w-full font-[800] md:w-auto px-8 py-2 sm:py-3 rounded-lg text-mainbg bg-white hover:bg-mainbg hover:text-main border border-tranparent hover:border-white transition duration-300"
+          >
+            Get your PEAK
+          </button>
+          <a
+            id="seeTokenomics_1"
+            href="#tokenomics"
+            class="text-brandColor hover:opacity-80 transition duration-300"
+            >See tokenomics &rarr;</a
+          >
+        </div>
+      </section>
+      <section
+        class="w-full lg:w-[900px] mx-auto flex flex-col md:flex-row justify-between gap-4 sm:gap-8"
+      >
+        <div>
+          <button
+            id="update_1"
+            class="px-5 py-2 rounded border-black bg-[#262626] text-[#e2e2e2] whitespace-nowrap"
+          >
+            UPDATE
+          </button>
+        </div>
+        <p
+          id="updateDesc_1"
+          class="my-30px sm:my-0 text-[16px] leading-[25px] md:text-[18px] text-[#7e7e7e]"
+        >
+          The Private Round has concluded with USD100,000 raised from our 106
+          private investors! We look forward to build the next frontier of web3
+          investing with you. We will be releasing details for our Pre-sale
+          Round shortly.
+        </p>
+      </section>
+    </div>
+
+    <section class="w-full xl:max-w-[1284px] mx-auto mb-10">
+      <div>
+        <img src="./img/peak-bossman.png" alt="office" />
+      </div>
+      <p
+        id="bossmanCaption"
+        class="text-[12px] md:text-[15px] text-center font-[600] text-textOff py-2"
+      >
+        Our exclusive members invest in specially curated projects – from
+        decade-old established businesses, to new innovative companies with
+        disruptive technologies.
+      </p>
+    </section>
+
+    <section class="w-full mx-auto">
+      <div class="max-w-[1000px] mx-auto flex flex-col gap-12">
+        <div>
+          <h2
+            id="investAndEarn"
+            class="text-[24px] font-[800] text-brandColor capitalize"
+          >
+            INVEST AND EARN WITH PEAK
+          </h2>
+          <p id="investAndEarnDesc_1" class="text-main">
+            Each month, we curate 2 real-world projects from our pool of
+            potential deals (not just web3!). Our team conducts thorough due
+            diligence on these projects, ensuring that they meet our criteria
+            for potential success. As a Peak member, you'll have the opportunity
+            to invest in these projects before they become widely available to
+            the public, giving you a head start on potential returns.
+          </p>
+          <p id="investAndEarnDesc_2" class="mt-7 text-main">
+            All community member who join during pre-launch will automatically
+            be enrolled for our first 2 investments. For the subsequent months,
+            you will have to stake your PEAK tokens in respective projects to
+            participate.
+          </p>
+        </div>
+        <div>
+          <h2
+            class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px] mb-4"
+          >
+            July 2023
+          </h2>
+          <div class="h-full w-full sm:relative">
+            <img
+              src="./img/peak-villa-aug.png"
+              class="border border-[4px] sm:border-[8px] md:border-[10px] border-white"
+              alt=""
+            />
+            <div
+              class="w-full sm:w-[650px] sm:opacity-80 sm:absolute bottom-2 left-2 flex flex-col py-5 sm:p-10 gap-8 bg-mainbg"
+            >
+              <div class="mt-2">
+                <h2
+                  id="villaBrand"
+                  class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                >
+                  Boutique Villa Brand
+                </h2>
+                <p id="villaBrandDesc" class="text-main leading-[25px] mt-2">
+                  A boutique villa brand that specialises in providing luxury
+                  vacation experiences for high-net-worth individuals. The
+                  company has a portfolio of properties located in some of the
+                  world's most sought-after destinations, including Bali, and
+                  Ibiza. With a focus on personalised service and attention to
+                  detail, the brand has quickly established a reputation for
+                  excellence in the luxury travel space.
+                </p>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row gap-5 sm:gap-1 justify-between px-4 border-l border-l-[5px] border-l-brandColor"
+              >
+                <div>
+                  <h2
+                    id="villaBrandInvestment"
+                    class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                  >
+                    USD 500,000
+                  </h2>
+                  <p id="villaBrandInvestmentDesc" class="text-main">
+                    Investment Required
+                  </p>
+                </div>
+                <div>
+                  <h2
+                    id="villaBrandReturn"
+                    class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                  >
+                    35% in 2 years
+                  </h2>
+                  <p id="villaBrandReturnDesc" class="text-main">
+                    Your Return on Investment
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-full w-full sm:relative mt-5">
+            <img
+              src="./img/peak-ev-aug2.png"
+              class="border border-[4px] sm:border-[8px] md:border-[10px] border-white"
+              alt=""
+            />
+            <div
+              class="w-full sm:w-[650px] sm:opacity-80 sm:absolute bottom-2 left-2 flex flex-col py-5 sm:p-10 gap-8 bg-mainbg"
+            >
+              <div class="mt-2">
+                <h2
+                  id="evBrand"
+                  class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                >
+                  Electric Vehicle Charging Network
+                </h2>
+                <p id="evBrandDesc" class="text-main leading-[25px] mt-2">
+                  An electric vehicle charging network that is poised to
+                  revolutionise the way we power our vehicles. The company has
+                  developed a network of charging stations that allows EV
+                  drivers to charge their vehicles quickly and easily, without
+                  the need for long wait times or complicated payment systems.
+                </p>
+              </div>
+              <div
+                class="flex flex-col sm:flex-row gap-5 sm:gap-1 justify-between px-4 border-l border-l-[5px] border-l-brandColor"
+              >
+                <div>
+                  <h2
+                    id="evBrandInvestment"
+                    class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                  >
+                    USD 650,000
+                  </h2>
+                  <p id="evBrandInvestmentDesc" class="text-main">
+                    Investment Required
+                  </p>
+                </div>
+                <div>
+                  <h2
+                    id="evBrandReturn"
+                    class="text-white text-[26px] md:text-[30px] font-[800] leading-[41px]"
+                  >
+                    30% in 2 years
+                  </h2>
+                  <p id="evBrandReturnDesc" class="text-main">
+                    Your Return on Investment
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-[90%] mx-auto mt-12 mb-8">
+          <h2 class="text-[26px] md:text-[32px] text-white font-[800]">
+            <span id="preLaunch1">
+              By joining Peak at pre-launch, you will be enrolled in above 2
+              investments for
+            </span>
+            <span id="preLaunch2" class="text-brandColor"
+              >65% return on investment in 2 years,</span
+            >
+            <span id="preLaunch3"> with no staking required. </span>
+          </h2>
+          <div
+            class="flex flex-col md:flex-row md:justify-center items-center gap-8 sm:gap-12 py-10"
+          >
+            <button
+              id="getYourPeak_2"
+              class="w-full font-[800] md:w-auto px-8 py-2 sm:py-3 rounded-lg text-mainbg bg-white hover:bg-mainbg hover:text-main border border-tranparent hover:border-white transition duration-300"
+            >
+              Get your PEAK
+            </button>
+            <a
+              id="seeTokenomics_2"
+              href="#tokenomics"
+              class="text-brandColor hover:opacity-80 transition duration-300"
+              >See tokenomics &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full max-w-[1284px] mx-auto">
+      <div>
+        <img src="./img/peak-traveller-airport-perks.png" alt="" />
+        <p
+          id="travellerCaption"
+          class="text-[12px] md:text-[15px] md:text-center font-[600] text-textOff py-2"
+        >
+          We make investment made easy. You can now invest in deals that were
+          traditionally open to only VCs and institutional funds.
+        </p>
+      </div>
+    </section>
+    <section class="w-full mx-auto my-10">
+      <div class="max-w-[1000px] mx-auto flex flex-col gap-12">
+        <div>
+          <h2
+            id="featuresAndTokenomics"
+            class="text-[24px] font-[800] text-brandColor capitalize"
+          >
+            FEATURES AND TOKENOMICS
+          </h2>
+          <p id="featuresAndTokenomicsDesc" class="text-main">
+            By investing in the token, you not only get access to the best
+            investment community in web3, but you also have the potential to
+            earn a return on your investment passively without active
+            participation – just stake, then claim your returns when they are
+            actualised!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="w-full mx-auto">
+      <div class="max-w-[1000px] mx-auto flex md:flex-row flex-col gap-12">
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-2 items-center md:block">
+            <img
+              src="./img/peak-orb-1.png"
+              alt=""
+              class="w-[35px] h-[35px] md:w-[53px] md:h-[53px]"
+            />
+            <h2
+              id="tokenBuyBack"
+              class="text-[20px] md:text-[24px] font-[800] text-brandColor capitalize"
+            >
+              Token Buy Back
+            </h2>
+          </div>
+          <p id="tokenBuyBackDesc" class="text-main text-[16px] md:text-[18px]">
+            When the club makes returns on investment, Peak will initiate token
+            buyback from the community to moderate the token price through
+            increasing token demand and reducing token supply. 75 of the tokens
+            will be burnt, while the rest will be to Community Treasury.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-2 items-center md:block">
+            <img
+              src="./img/peak-orb-2.png"
+              alt=""
+              class="w-[35px] h-[35px] md:w-[53px] md:h-[53px]"
+            />
+            <h2
+              id="governanceRights"
+              class="text-[20px] md:text-[24px] font-[800] text-brandColor capitalize"
+            >
+              Governance Rights
+            </h2>
+          </div>
+          <p
+            id="governanceRightsDesc"
+            class="text-main text-[16px] md:text-[18px]"
+          >
+            Token holders also have voting rights on the club's future
+            investments, giving them a say in the direction of the club's
+            portfolio. This creates a sense of community and belonging among
+            members, and ensures that everyone has a stake in the club's
+            success.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="w-full mx-auto mt-10">
+      <div
+        class="max-w-[1000px] h-full mx-auto border-l-[4px] md:border-l-[6px] pl-5 py-2 pr-1 md:pl-12 md:py-8 border-l-brandColor flex justify-center items-center"
+      >
+        <p class="text-white text-[20px] md:text-[24px]">
+          <span id="goalDesc1">
+            Our goal is to assure our investors that we stand product and are
+            dedicated to creating a reliable and opportunity. pre-launch, we
+            will be offering a unique investment guarantee –
+          </span>
+          <span id="goalDesc2" class="text-brandColor">
+            for any reason, you do not receive any return on your initial
+            investment within a 2-year period, we will return investment in full </span
+          >.<br />
+          <span id="goalDesc3" class="text-[12px] text-textOff">
+            *Valid all wallets participating in Private and Pre-Round only
+          </span>
+        </p>
+      </div>
+    </section>
+    <!-- grid -->
+    <section id="tokenomics" class="w-full mx-auto pt-10">
+      <div class="max-w-[1000px] mx-auto grid md:grid-cols-3 grid-cols-1">
+        <div
+          class="sm:border-t-[1px] sm:border-r-[1px] border-b-[1px] border-borderMain grid grid-cols-1"
+        >
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">12%</p>
+            <p id="grid_11" class="text-textOff">Team Allocation</p>
+          </div>
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">4%</p>
+            <p id="grid_21" class="text-textOff">Private Round</p>
+          </div>
+          <div
+            class="py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">20%</p>
+            <p id="grid_31" class="text-textOff">Treasury</p>
+          </div>
+        </div>
+        <div
+          class="sm:border-t-[1px] sm:border-r-[1px] border-b-[1px] border-borderMain grid grid-cols-1"
+        >
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">8%</p>
+            <p id="grid_12" class="text-textOff">Marketing</p>
+          </div>
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">10%</p>
+            <p id="grid_22" class="text-textOff">Pre-sale Round</p>
+          </div>
+          <div
+            class="py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">25%</p>
+            <p id="grid_32" class="text-textOff">Community Rewards</p>
+          </div>
+        </div>
+        <div
+          class="sm:border-t-[1px] border-b-[1px] border-borderMain grid grid-cols-1"
+        >
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">5%</p>
+            <p id="grid_13" class="text-textOff">Development</p>
+          </div>
+          <div
+            class="border-b-[1px] border-borderMain py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">6%</p>
+            <p id="grid_23" class="text-textOff">Public Round</p>
+          </div>
+          <div
+            class="py-8 md:py-12 px-2 flex flex-col gap-2 justify-center items-center"
+          >
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">10%</p>
+            <p id="grid_33" class="text-textOff">Liquidity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full mx-auto">
+      <div
+        class="max-w-[1000px] mx-auto grid md:grid-cols-2 grid-cols-1 gap-12 border-b border-b-borderMain"
+      >
+        <div
+          class="flex gap-2 items-center justify-center items-center py-[30px]"
+        >
+          <img src="./img/peak-token.png" alt="" class="w-[53px] h-[53px]" />
+          <div class="">
+            <p class="text-white text-[22px] md:text-[28px] font-[800]">
+              400,000,000,000
+            </p>
+            <p id="tokenMaxSupply" class="text-textOff">
+              PEAK Token Max Supply
+            </p>
+          </div>
+        </div>
+        <div class="hidden md:block p-8">
+          <p
+            id="tokenMaxSupplyDesc"
+            class="text-[12px] font-[500] text-[#4E4E4E]"
+          >
+            Total Supply: 400,000,000,000 PEAK <br />
+            Team: 12% of total supply – vesting 4% monthly from 12th month
+            <br />
+            Marketing: 8% of total supply – vesting 4% monthly from 6th month
+            <br />
+            Development: 5% of total supply – vesting 10% monthly from 4th month
+            <br />
+            Private Round: 4% of total supply – 10% at TGE, 15% monthly
+            thereafter <br />
+            Presale Round: 10% of total supply – 25% at TGE, 25% monthly
+            thereafter <br />
+            Public Round: 6% of total supply – 30% at TGE, 35% biweekly
+            thereafter <br />
+            Treasury – 20% of total supply – allocated monthly over 4 years
+            <br />
+            Community Reward: 25% of total supply – vesting 4% monthly from TGE
+            <br />
+            Liquidity: 10% of total supply – fully unlocked, dynamically
+            allocated <br />
+            Private Round executed at 0.000000003289 ETH per PEAK <br />
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="w-full lg:w-[900px] mx-auto flex flex-col md:flex-row justify-between gap-4 sm:gap-8 mt-10 md:mt-2"
+    >
+      <div>
+        <button
+          id="update_2"
+          class="px-5 py-2 rounded border-black bg-[#262626] text-[#e2e2e2] whitespace-nowrap"
+        >
+          UPDATE
+        </button>
+      </div>
+      <p
+        id="updateDesc_2"
+        class="text-[16px] leading-[25px] md:text-[18px] text-[#7e7e7e]"
+      >
+        The Private Round has concluded with USD100,000 raised from our 106
+        private investors! We look forward to build the next frontier of web3
+        investing with you. We will be releasing details for our Pre-sale Round
+        shortly.
+      </p>
+    </section>
+    <section class="w-full max-w-[1284px] mx-auto my-12">
+      <div>
+        <img src="./img/peak-dev.png" alt="" />
+        <p
+          id="devCaption"
+          class="text-[12px] md:text-[15px] md:text-center font-[600] text-textOff py-2"
+        >
+          And thanks to our initial backers, we are almost delivering first
+          public version of our core platform.
+        </p>
+      </div>
+    </section>
+    <section class="w-full mx-auto">
+      <div class="max-w-[1000px] mx-auto flex flex-col gap-12" id="roadmap">
+        <div>
+          <h2
+            id="roadmapHeading"
+            class="text-[22px] md:text-[24px] font-[800] text-brandColor capitalize"
+          >
+            ROADMAP
+          </h2>
+          <p id="roadmapDesc" class="text-main text-[16px] md:text-[18px]">
+            Our roadmap highlights the key developments and initiatives that we
+            have planned for the near and long-term future. As we progress along
+            this roadmap, we will continuously engage with our community
+            members, keeping the community informed of our progress and seeking
+            your input and feedback.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-10">
+      <div class="max-w-[1000px] mx-auto mb-[10px]">
+        <h2 id="upcomingHeading" class="text-white text-[20px] md:text-[28px]">
+          Upcoming
+        </h2>
+      </div>
+      <div
+        class="scrollbar-hide-img overflow-x-scroll flex gap-[10px]"
+        id="slider-container"
+      >
+        <div class="flex gap-3 md:gap-5">
+          <div class="w-[85vw] md:w-[720px]">
+            <div
+              class="bg-img-1 border-[2px] border-white h-[420px] flex items-end relative"
+            >
+              <div
+                class="md:px-5 md:h-[80px] flex flex-col justify-center absolute top-[102%] md:static md:bg-mainbg"
+              >
+                <h2
+                  id="upcoming_1_title"
+                  class="text-white text-[20px] md:text-[20px]"
+                >
+                  Peak Investor Platform
+                </h2>
+                <p
+                  id="upcoming_1_date"
+                  class="text-white font-[600] text-[16px] md:text-[18px]"
+                >
+                  August 2023
+                </p>
+              </div>
+            </div>
+            <p
+              id="upcoming_1_desc"
+              class="mt-[70px] md:mt-2 text-main text-[16px] md:text-[18px] font-[500]"
+            >
+              Version 1 enable members to access investment opportunities, stake
+              PEAK tokens, and participate in governance decisions. Once the
+              platform is live, we will feature two projects for community
+              investment monthly.
+            </p>
+          </div>
+          <div class="w-[85vw] md:w-[720px]">
+            <div
+              class="bg-img-2 border-[2px] border-white h-[420px] flex items-end relative"
+            >
+              <div
+                class="md:px-5 md:h-[80px] flex flex-col justify-center absolute top-[102%] md:static md:bg-mainbg"
+              >
+                <h2
+                  id="upcoming_2_title"
+                  class="text-white text-[20px] md:text-[20px]"
+                >
+                  DEX + Liquidity Pool/Swap
+                </h2>
+                <p
+                  id="upcoming_2_date"
+                  class="text-white font-[600] text-[16px] md:text-[18px]"
+                >
+                  August 2023
+                </p>
+              </div>
+            </div>
+            <p
+              id="upcoming_2_desc"
+              class="mt-[70px] md:mt-2 text-main text-[16px] md:text-[18px] font-[500]"
+            >
+              To enable token liquidity and community onboarding, we will
+              initiate our liquidity pool or swap facility. We will do so at the
+              completion of our Public Round.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full mx-auto">
+      <div
+        class="max-w-[1000px] mx-auto flex flex-col justify-start gap-2 my-8"
+      >
+        <h2 id="pipelineHeading" class="text-white text-[20px] md:text-[28px]">
+          In The Pipeline
+        </h2>
+        <div class="flex flex-col gap-[10px] md:gap-3">
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2023</h2>
+            <p
+              id="pipeline_1"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              DAO Initiation
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2023</h2>
+            <p
+              id="pipeline_2"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Platform Technical Audit
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2023</h2>
+            <p
+              id="pipeline_3"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Community NFT Launch
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2023</h2>
+            <p
+              id="pipeline_4"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Black Friday and Cyber Monday Event
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2023</h2>
+            <p
+              id="pipeline_5"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Peak Advent Calendar
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q1/2024</h2>
+            <p
+              id="pipeline_6"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Support for Fractionalised Assets
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q1/2024</h2>
+            <p
+              id="pipeline_7"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              CEX Listing
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q2/2024</h2>
+            <p
+              id="pipeline_8"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Special Announcement: TBA
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q2/2024</h2>
+            <p
+              id="pipeline_9"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              IRL Community Event Tour + Sneak Peek
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q2/2024</h2>
+            <p
+              id="pipeline_10"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Peak v2.0 Platform Update
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q3/2024</h2>
+            <p
+              id="pipeline_11"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              Anniversary Airdrop for Early Supporter
+            </p>
+          </div>
+          <div class="flex gap-4 items-center">
+            <h2 class="text-brandColor text-[13px] md:text-[15px]">Q4/2024</h2>
+            <p
+              id="pipeline_12"
+              class="text-main text-[16px] md:text-[18px] md:text-[18px]"
+            >
+              TOKEN2049 @ London
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-star border-t border-t-[#222222] md:py-20">
+      <div
+        class="max-w-[1000px] mx-auto pt-[150px] flex justify-center items-center"
+      >
+        <div class="flex flex-col items-center gap-5">
+          <img
+            src="./img/peak-moon.png"
+            class="max-h-[150px] mb-10"
+            alt="moon"
+          />
+          <div class="max-w-[90%] md:max-w-[100%]">
+            <h2
+              id="wayToMoonTitle"
+              class="text-white text-[26px] md:text-[28px] text-center"
+            >
+              This way to the moon.
+            </h2>
+            <p
+              id="wayToMoonDesc"
+              class="text-main text-[16px] md:text[18px] text-center"
+            >
+              Got a feature or idea for the community? Join us at Discord and
+              Twitter today.
+            </p>
+          </div>
+          <div class="hidden md:flex gap-[24px] items-center">
+            <a
+              href="https://discord.gg/GnaDySzgkd"
+              target="_blank"
+              class="text-brandColor hover:text-white"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.6948 7.10689C23.9215 6.28022 22.0015 5.68022 20.0015 5.33356C19.9839 5.333 19.9665 5.33629 19.9504 5.3432C19.9342 5.35011 19.9198 5.36047 19.9081 5.37356C19.6681 5.81356 19.3881 6.38689 19.2015 6.82689C17.0801 6.50689 14.9228 6.50689 12.8015 6.82689C12.6148 6.37356 12.3348 5.81356 12.0815 5.37356C12.0681 5.34689 12.0281 5.33356 11.9881 5.33356C9.98812 5.68022 8.08146 6.28022 6.29479 7.10689C6.28146 7.10689 6.26813 7.12022 6.25479 7.13356C2.62813 12.5602 1.62813 17.8402 2.12146 23.0669C2.12146 23.0936 2.13479 23.1202 2.16146 23.1336C4.56146 24.8936 6.86813 25.9602 9.14813 26.6669C9.18813 26.6802 9.22813 26.6669 9.24146 26.6402C9.77479 25.9069 10.2548 25.1336 10.6681 24.3202C10.6948 24.2669 10.6681 24.2136 10.6148 24.2002C9.85479 23.9069 9.13479 23.5602 8.42813 23.1602C8.37479 23.1336 8.37479 23.0536 8.41479 23.0136C8.56146 22.9069 8.70813 22.7869 8.85479 22.6802C8.88146 22.6536 8.92146 22.6536 8.94813 22.6669C13.5348 24.7602 18.4815 24.7602 23.0148 22.6669C23.0415 22.6536 23.0815 22.6536 23.1081 22.6802C23.2548 22.8002 23.4015 22.9069 23.5481 23.0269C23.6015 23.0669 23.6015 23.1469 23.5348 23.1736C22.8415 23.5869 22.1081 23.9202 21.3481 24.2136C21.2948 24.2269 21.2815 24.2936 21.2948 24.3336C21.7215 25.1469 22.2015 25.9202 22.7215 26.6536C22.7615 26.6669 22.8015 26.6802 22.8415 26.6669C25.1348 25.9602 27.4415 24.8936 29.8415 23.1336C29.8681 23.1202 29.8815 23.0936 29.8815 23.0669C30.4681 17.0269 28.9081 11.7869 25.7481 7.13356C25.7348 7.12022 25.7215 7.10689 25.6948 7.10689ZM11.3615 19.8802C9.98813 19.8802 8.84146 18.6136 8.84146 17.0536C8.84146 15.4936 9.96146 14.2269 11.3615 14.2269C12.7748 14.2269 13.8948 15.5069 13.8815 17.0536C13.8815 18.6136 12.7615 19.8802 11.3615 19.8802ZM20.6548 19.8802C19.2815 19.8802 18.1348 18.6136 18.1348 17.0536C18.1348 15.4936 19.2548 14.2269 20.6548 14.2269C22.0681 14.2269 23.1881 15.5069 23.1748 17.0536C23.1748 18.6136 22.0681 19.8802 20.6548 19.8802Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/peakcoineth"
+              target="_blank"
+              class="text-brandColor hover:text-white"
+            >
+              <svg
+                width="28"
+                height="23"
+                viewBox="0 0 28 23"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M27.8933 2.66667C26.8667 3.13333 25.76 3.44 24.6133 3.58667C25.7867 2.88 26.6933 1.76 27.12 0.413333C26.0133 1.08 24.7867 1.54667 23.4933 1.81333C22.44 0.666667 20.96 0 19.28 0C16.1467 0 13.5867 2.56 13.5867 5.72C13.5867 6.17333 13.64 6.61333 13.7333 7.02667C8.98667 6.78667 4.76 4.50667 1.94667 1.05333C1.45333 1.89333 1.17333 2.88 1.17333 3.92C1.17333 5.90667 2.17333 7.66667 3.72 8.66667C2.77333 8.66667 1.89333 8.4 1.12 8V8.04C1.12 10.8133 3.09333 13.1333 5.70667 13.6533C4.86764 13.8829 3.98679 13.9149 3.13333 13.7467C3.49548 14.8833 4.20472 15.8779 5.16136 16.5906C6.11799 17.3033 7.27393 17.6983 8.46667 17.72C6.44484 19.3206 3.93866 20.1858 1.36 20.1733C0.906667 20.1733 0.453333 20.1467 0 20.0933C2.53333 21.72 5.54667 22.6667 8.77333 22.6667C19.28 22.6667 25.0533 13.9467 25.0533 6.38667C25.0533 6.13333 25.0533 5.89333 25.04 5.64C26.16 4.84 27.12 3.82667 27.8933 2.66667Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://t.me/peaktokenofficial"
+              target="_blank"
+              class="text-brandColor hover:text-white"
+            >
+              <svg
+                width="25"
+                height="22"
+                viewBox="0 0 25 22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.93516 19.8668L10.3085 14.2268L20.5485 5.00012C21.0018 4.58679 20.4552 4.38679 19.8552 4.74679L7.21516 12.7335L1.74849 11.0001C0.57516 10.6668 0.561826 9.85345 2.01516 9.26679L23.3085 1.05345C24.2818 0.613453 25.2152 1.29345 24.8418 2.78679L21.2152 19.8668C20.9618 21.0801 20.2285 21.3735 19.2152 20.8135L13.6952 16.7335L11.0418 19.3068C10.7352 19.6135 10.4818 19.8668 9.93516 19.8668Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full max-w-[1284px] mx-auto my-12">
+      <div>
+        <img src="./img/peak-astro.png" alt="" />
+        <p
+          id="astroCaption"
+          class="text-[12px] md:text-[15px] md:text-center font-[600] text-textOff py-2"
+        >
+          To the moon, quite literally.
+        </p>
+      </div>
+    </section>
+
+    <section class="w-full mx-auto" id="faq-section">
+      <div class="max-w-[1000px] mx-auto grid grid-cols-1 gap-12">
+        <div>
+          <h2
+            id="faqHeading"
+            class="text-[22px md:text-[24px] font-[800] text-brandColor capitalize"
+          >
+            FAQs
+          </h2>
+          <p id="faqDesc" class="text-main text-[16px] md:text-[18px]">
+            This project is only going to get better from here. We know you
+            might have some questions about Peak, so we've compiled a list of
+            Frequently Asked Questions to help you get started. We try to keep
+            things simple around here, but in case you are new to this – we hope
+            you give this a quick read, and head to Discord for deeper
+            discussion.
+          </p>
+        </div>
+        <div class="accordion flex flex-col gap-8" id="faqBody"></div>
+      </div>
+    </section>
+
+    <footer class="w-full mx-auto pt-[150px] pb-10">
+      <div class="flex flex-col justify-center items-center gap-5">
+        <img src="./img/peak-token.png" class="max-h-[100px]" alt="token" />
+        <div class="flex flex-col gap-2 items-center justify-center">
+          <img src="./img/logo.png" class="max-h-[200px]" alt="logo" />
+          <p id="footerSlogan" class="text-main text-[16px]">
+            The new frontier in web3 investing
+          </p>
+        </div>
+        <p id="copyright" class="text-textOff text-[12px]">
+          Peak Investment Company 2023. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="faq.js"></script>
+
+    <script>
+      const roadmap = document.getElementById("roadmap");
+      const sliderContainer = document.getElementById("slider-container");
+      const distance = roadmap.offsetLeft;
+      sliderContainer.style = `margin-left: ${distance}px;`;
+    </script>
+  </body>
+</html>
